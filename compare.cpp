@@ -15,7 +15,6 @@ void compare_using_date() {
 	std::cin >> end_date;
 
 
-
 	//interfacing w file
 
 	std::ifstream input_file("./Current_Reservoir_Levels.tsv"); // file input constructor
@@ -34,19 +33,35 @@ void compare_using_date() {
 
 	double east, west;
 
-	std::string date;
-	std::string east_basin_storage;
-	std::string west_basin_storage;
+	std::string date, east_basin_storage, west_basin_storage, west_elevation, east_elevation;
 
+	bool inRange = false; // a variable for helping us index the start
 
-	while(input_file >> date >> east_basin_storage >> west_basin_storage) {
+	// going through the file
+	while(input_file >> date >> east_basin_storage >> east_elevation >> west_basin_storage >> west_elevation) {
 
-		if (current_value > max) {
-			max = current_value;
-			continue;
-		} else if (min > current_value) {
-			min = current_value;
-			continue;
+		if (date == start_date) {
+			inRange = true; // letting us know to start comparing
+		}
+
+		if (inRange) {
+
+			if (east_basin_storage > west_basin_storage) {
+				//east
+				std::cout << date << " East" << "\n";
+ 
+			} else if( east_basin_storage < west_basin_storage) {
+				// west
+				std::cout << date << " West" << "\n";
+
+			} else { // equal
+				std::cout << date << " Equal" << "\n";
+			}
+
+			if (date == end_date) { // we have reached the end_date
+				break;
+			}
+
 		}
 
 		input_file.ignore(INT_MAX, '\n'); //skips to the end of line, 
@@ -58,5 +73,6 @@ void compare_using_date() {
 
 
 int main() {
+	compare_using_date();
 	return 0;
 }
