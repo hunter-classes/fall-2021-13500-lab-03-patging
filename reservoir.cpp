@@ -1,4 +1,12 @@
+/* 
+reservoir.cpp
+Patrick Ging
 
+Professor Zamansky
+
+Lab 3 
+
+*/
 #include <iostream>
 #include <fstream>
 
@@ -130,8 +138,8 @@ std::string compare_basins(std::string date) {
 	/* 
 
 	Will look into a tsv file (at the moment Current_Reservoir_Levels.tsv )
-	and will use date from MM/DD/YYYY format and will print out the 
-	east basin storage of that day.
+	and will use date from MM/DD/YYYY format and will print out which of the two
+	basins are greater that day (reutning "east" or "west" respectively), or if they're equal, "equal"
 
 	std::string argument date
 

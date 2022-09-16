@@ -1,10 +1,19 @@
-// add your code as appropriate 
+/* 
+main.cpp
+Patrick Ging
+
+Professor Zamansky
+
+Lab 3 
+
+*/
+
 #include <iostream>
 #include "reservoir.h"
+#include "reverse-order.h"
 
 int main() {
   
-
   // reservoir.h tests
 
   // get_east_storage(std::string date) tests
@@ -23,11 +32,11 @@ int main() {
 
   // reverse_order(std::string date1, std::string date 2) 
 
-  reverse_order("01/21/2018", "01/01/2018");
+  reverse_order("01/21/2018", "02/01/2018");
 
-  reverse_order("03/21/2018", "03/01/2018");
+  reverse_order("03/21/2018", "04/01/2018");
 
-  reverse_order("07/21/2018", "07/01/2018");
+  reverse_order("07/21/2018", "08/01/2018"); 
 
   return 0;
 }
